@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Event Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Dreamforce</fullName>
+                <default>false</default>
+                <label>Dreamforce</label>
+            </value>
+            <value>
+                <fullName>Connections</fullName>
+                <default>false</default>
+                <label>Connections</label>
+            </value>
+            <value>
+                <fullName>World Tour</fullName>
+                <default>false</default>
+                <label>World Tour</label>
+            </value>
+            <value>
+                <fullName>Lightning Essentials</fullName>
+                <default>false</default>
+                <label>Lightning Essentials</label>
+            </value>
+            <value>
+                <fullName>Boot Camp</fullName>
+                <default>false</default>
+                <label>Boot Camp</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

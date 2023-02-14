@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Escola</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Escolas</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Layout de Escola</layout>
+        <sections>
+            <label></label>
+            <section>Endereço</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Links personalizados</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>
