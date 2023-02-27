@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title={titulo}>
+        <template if:true={mundoList}>
+            true  
+
+        </template>
+        <template if:false={mundoList}> 
+            false 
+
+        </template>
+        <template for:each={mundoList} for:item="mundo"> 
+            <p key={mundo.id}>nome: {mundo.nome}</p>
+                
+        </template>
+
+    </lightning-card>
+
+    
+</template>

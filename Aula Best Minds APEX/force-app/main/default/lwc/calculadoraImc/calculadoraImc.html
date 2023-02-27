@@ -1,0 +1,62 @@
+<template>
+    <div class="principal ">
+        <div class="slds-m-top_medium slds-m-bottom_x-large corpo bg">
+            <form>
+                <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+                    <b>CALCULADORA IMC.</b>
+                </h2>
+
+                <!-- Default/basic -->
+                <div class="slds-p-around_small ">
+                    <b><lightning-input type="text" value={nome} label="Nome Completo:" data-id="nome" onchange={handleInput}
+                            required="true"></lightning-input></b>
+                </div>
+                
+                <div class=" form ">
+                    <div class="slds-p-around_small input ">
+
+                        <lightning-input type="number" value={altura} placeholder="Exemplo 1,83" label="Informe sua altura:" step="0.01" min="0" max="3"
+                            data-id="altura" onchange={handleInput} required="true"></lightning-input>
+                    </div>
+                    <div class="slds-p-around_small input ">
+                        <lightning-input type="number" value={peso} label="Informe seu peso" step="0.01" min="0" max="500"
+                            data-id="peso" onchange={handleInput} required="true"></lightning-input>
+                    </div>
+                </div>
+
+
+
+
+                <template if:true={resp}>
+                    <div class="slds-m-top_medium slds-m-bottom_x-large res corpores">
+                        <b>Olá {nome}<br />
+                            <Br><b>Seu peso é: {peso}</b></Br>
+                            <Br><b>Sua altura é: {altura}</b></Br>
+                            <Br><b> {resultado}</b></Br>
+
+                        </b>
+                        <br><img src={img} /></br>
+                    </div>
+
+                </template>
+
+                <div class="button">
+                    <lightning-button variant="success" label="Calcular" title="Calcular?
+                " onclick={calcular} class="slds-m-left_x-small">
+                    </lightning-button>
+                    <lightning-button disabled={mostraLimpar} variant="neutral" label="Limpar" title="Limpar?
+                    " onclick={limpar} class="slds-m-left_x-small">
+                        </lightning-button>
+                </div>
+
+
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</template>

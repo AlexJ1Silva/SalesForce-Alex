@@ -16,15 +16,17 @@ public with sharing class ContactBO{
 
         List<Account> listAcc = new List<Account>();
 
-        listAcc = ContactDao.getSexualidadeAccountIdList(accIds);
+        listAcc = AccountDAO.getSexualidadeAccountIdList(accIds);
 
         if (listAcc.size() > 0){
 
             for (Account acc : listAcc){
 
-                acc.QntdHomossexuais__c = c.Contacts.size();
+                acc.QntdHomossexuais__c = acc.Contacts.size();
             }
         }
+
+        update listAcc;
     }
 
 }

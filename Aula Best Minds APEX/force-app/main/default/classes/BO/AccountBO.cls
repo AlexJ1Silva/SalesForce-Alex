@@ -198,7 +198,7 @@ public class AccountBO{
 
         Database.update(matrizMap);
         Database.update(filiasUpdate);
-    } */
+    }  */
     
     /* public static void atualizarNomeConta(List<Account> accountList) {
         System.debug('# Método AccountBO >> atualizarNomeConta >>> accountList >>> ' + accountList);
@@ -268,4 +268,31 @@ public class AccountBO{
         }
         update attListContato;
     }  
+
+    public static void calculoClassificacao(List<Account> acc){
+     /*    #####HISTORIA#####
+
+        Crie uma classe que receba uma lista de contas (Account) e calcule 
+        a sua classificação baseado no campo faturamento anual (AnnualRevenue):
+        - 0 à 5000 (Prata)
+        - 5001 à 500000 (Ouro)
+        - + de 500000 (Diamante)
+        - Nulo não tem classificação */
+        if(acc.size() >0){
+            for(Account a : acc){
+                if(a.AnnualRevenue != null){
+                    if(a.AnnualRevenue >0 && a.AnnualRevenue <= 5000){
+                        a.ClassificaoCliente__c = 'Prata';
+                    }
+                    else if(a.AnnualRevenue >5001 && a.AnnualRevenue <= 500000){
+                        a.ClassificaoCliente__c = 'Ouro';
+                    }
+                    else if(a.AnnualRevenue >500000){
+                        a.ClassificaoCliente__c = 'Diamante';
+                    }
+                }
+            } 
+        }
+        Database.update(acc);
+    }
 }

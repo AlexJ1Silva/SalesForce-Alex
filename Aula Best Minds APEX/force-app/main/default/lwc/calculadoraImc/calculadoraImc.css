@@ -1,0 +1,54 @@
+.bg{
+    background: linear-gradient( rgb(18, 79, 244),rgb(19, 151, 239) );
+}
+
+.corpo {
+    font-weight: bolder;
+    width: 40% !important;
+}
+
+.button{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+
+}
+
+h2{
+    text-align: center;
+}
+
+
+.principal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.corpores{
+    margin: 10px;
+    display: flex;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+    background: linear-gradient( rgb(18, 79, 244),rgb(19, 151, 239) );
+    flex-direction: column;
+    text-align: center;
+}
+
+.form{
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.input{
+    width: 50%;
+
+}
+
+lightning-button ~ lightning-button{
+    padding-left: 22px;
+    margin-left: 0 !important;
+}

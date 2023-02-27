@@ -29,9 +29,10 @@ trigger AccountTriggers on Account(before delete, after insert, after delete ){
         AccountBO.getInstance().attStatusOpp(Trigger.new );
 
     }
-    if(Trigger.isUpdate || Trigger.isInsert && Trigger.isAfter){
-
-        AccountBO.getInstance().somaQntdContasFilial(Trigger.new);
+    if(Trigger.isInsert && Trigger.isAfter){
+        ExerciciosSoql e = new ExerciciosSoql();
+        e.criaTaskParaAccount(Trigger.new);
+        
     }
 
   

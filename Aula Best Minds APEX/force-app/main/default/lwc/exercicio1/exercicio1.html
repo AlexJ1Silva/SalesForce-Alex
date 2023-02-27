@@ -1,0 +1,174 @@
+<template>
+    <div class="body1">
+        <div class="slds-m-top_medium slds-m-bottom_x-large corpo1 bg">
+            <h1 class="slds-text-heading_medium slds-m-bottom_medium">
+                <b>Formulário pessoa Física/Jurídica.</b>
+            </h1>
+
+            <!-- Default/basic -->
+
+            <!-- mascara para telefone pattern="^\(\d{2}\)\s\d{5}-\d{4}$" -->
+            <form>
+
+                <div class="form box ">
+
+                    <div class="slds-form-element">
+                        <label class="slds-checkbox_toggle slds-grid">
+                            <span class="slds-form-element__label slds-m-bottom_none">CPF</span>
+                            <input type="checkbox" name="checkbox-toggle-16" data-id="bcpf" value={bcpf}
+                                onclick={handleInput} aria-describedby="checkbox-toggle-16" disabled={bcnpj} />
+                            <span id="checkbox-toggle-16" class="slds-checkbox_faux_container" aria-live="assertive">
+                                <span class="slds-checkbox_faux"></span>
+                                <span class="slds-checkbox_on">Enabled</span>
+                                <span class="slds-checkbox_off">Disabled</span>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="slds-form-element">
+                        <label class="slds-checkbox_toggle slds-grid">
+                            <span class="slds-form-element__label slds-m-bottom_none">CNPJ</span>
+                            <input type="checkbox" name="checkbox-toggle-16" data-id="bcnpj" value={bcpnpj}
+                                onclick={handleInput} aria-describedby="checkbox-toggle-17" disabled={bcpf} />
+                            <span id="checkbox-toggle-17" class="slds-checkbox_faux_container" aria-live="assertive">
+                                <span class="slds-checkbox_faux"></span>
+                                <span class="slds-checkbox_on">Enabled</span>
+                                <span class="slds-checkbox_off">Disabled</span>
+                            </span>
+                        </label>
+                    </div>
+
+
+                </div>
+
+                <template if:true={bcpf}>
+                    <div class="slds-p-around_small ">
+                        <b><lightning-input type="text" label="CPF:" 
+                                value={cpf} data-id="cpf" onchange={handleCpfInputMask}></lightning-input></b>
+                    </div>
+                </template>
+                <template if:true={bcnpj}>
+                    <div class="slds-p-around_small ">
+                        <b><lightning-input type="text" label="CNPJ:" 
+                                value={cnpj} data-id="cnpj" onchange={handleCnpjInputMask}></lightning-input></b>
+                    </div>
+                </template>
+
+
+                <div class="form">
+                    <div class="slds-p-around_small input">
+                        <b><lightning-input name="Telefone" pattern="^\(\d{2}\)\s\d{5}-\d{4}$" label="Telefone:" message-when-pattern-mismatch="Telefone invalido"
+                                data-id="telefone" value={telefone}
+                                onchange={handlePhoneInputMask}></lightning-input></b>
+                    </div>
+                    <div class="slds-p-around_small input">
+                        <b><lightning-input name="Email" placeholder="Exemplo xpto@gmail.com"
+                                pattern="^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
+                                message-when-pattern-mismatch="Email invalido" label="E-mail:" data-id="email"
+                                value={email} onchange={handleInput}></lightning-input></b>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="form ">
+                    <div class="slds-p-around_small input">
+                        <b><lightning-input type="text" label="Nome:" data-id="nome" value={nome}
+                                onchange={handleInput}></lightning-input></b>
+                    </div>
+
+                    <div class="slds-p-around_small input ">
+                        <b><lightning-input type="date" label={labelData} data-id="idade" value={idade}
+                                onchange={handleInput}></lightning-input></b>
+                    </div>
+                </div>
+                <div class="form ">
+                    <div class="slds-p-around_small input">
+                        <b><lightning-input type="text" label="CEP:" data-id="cep" value={cep}
+                                onchange={handleInput}></lightning-input></b>
+                    </div>
+
+
+                    <div class="slds-p-around_small input">
+                        <b><lightning-input type="text" label="Endereço:" data-id="endereco" value={endereco}
+                                onchange={handleInput}></lightning-input></b>
+                    </div>
+
+
+                </div>
+                <div class="form ">
+                    <div class="slds-p-around_small inputcidade">
+                        <b><lightning-input type="text" label="Cidade:" data-id="cidade" value={cidade}
+                                onchange={handleInput}></lightning-input></b>
+                    </div>
+
+                    <div class="slds-p-around_small inputuf">
+                        <b><lightning-input type="text" label="UF:" data-id="uf" value={uf}
+                                onchange={handleInput}></lightning-input></b>
+                    </div>
+                </div>
+                <div class="form">
+                    <div class="button input">
+                        <lightning-button variant="brand" label="Cadastrar" title="Cadastrar?
+                        " onclick={handleClick} class="slds-m-left_x-small">
+                        </lightning-button>
+                    </div>
+                    <div class="button input">
+                        <lightning-button disabled={mostraLimpar} variant="neutral" label="Limpar" title="Limpar?
+                        " onclick={limpar} class="slds-m-left_x-small">
+                        </lightning-button>
+                    </div>
+                </div>
+
+
+
+
+
+            </form>
+
+        </div>
+
+
+
+        <template if:true={resp}>
+            <div class="slds-m-top_medium slds-m-bottom_x-large  corpores">
+                <b>
+                              
+                        <Br><b>Nome: {nomeCompleto}</b></Br>
+                        <Br><b>Idade: {idade}</b></Br>
+                        <Br><b>Telefone: {telefone}</b></Br>
+                        <Br><b>E-mail: {email}</b></Br>
+                        <Br><b>CPF: {cpf}</b></Br>
+                        <Br><b>CEP: {cep}</b></Br>
+                        <Br><b>Cidade: {cidade}</b></Br>
+                        <Br><b>Estado: {estado}</b></Br>
+                        <Br><b>Endereço: {endereco}</b></Br>
+                </b>
+            </div>
+        </template>
+
+        <template if:true={resp2}>
+            <div class="slds-m-top_medium slds-m-bottom_x-large  corpores">
+                <b>
+                              
+                        <Br><b>Nome: {nomeCompleto}</b></Br>
+                        <Br><b>Idade: {idade}</b></Br>
+                        <Br><b>Telefone: {telefone}</b></Br>
+                        <Br><b>E-mail: {email}</b></Br>
+                        <Br><b>CNPJ: {cnpj}</b></Br>
+                        <Br><b>CEP: {cep}</b></Br>
+                        <Br><b>Cidade: {cidade}</b></Br>
+                        <Br><b>Estado: {estado}</b></Br>
+                        <Br><b>Endereço: {endereco}</b></Br>
+                </b>
+            </div>
+
+        </template>
+
+
+    </div>
+
+</template>
