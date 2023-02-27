@@ -1,19 +1,45 @@
 <template>
-    <lightning-card title={titulo}>
-        <template if:true={mundoList}>
-            true  
+   
+    <div class="slds-p-around_small input">
+        <b><lightning-input type="text" label="Nome:" data-id="nome" value={nome}
+                onchange={handleInput}></lightning-input></b>
+    </div>
+    <div class="slds-p-around_small input">
+        <b><lightning-input type="text" label="Cor:" data-id="cor" value={cor}
+                onchange={handleInput}></lightning-input></b>
+    </div>
+    <div class="slds-p-around_small input">
+        <b><lightning-input type="number" label="Distancia do Sol:" data-id="distanciaSol" value={distanciaSol}
+                onchange={handleInput}></lightning-input></b>
+    </div>
+    <div class="slds-p-around_small input">
+        <b><lightning-input type="number" label="Quantidade de Luas:" data-id="qtdLuas" value={qtdLuas}
+                onchange={handleInput}></lightning-input></b>
+    </div>
+    <div class="slds-form-element">
+        <label class="slds-checkbox_toggle slds-grid">
+            <span class="slds-form-element__label slds-m-bottom_none">Possui agua?</span>
+            <input type="checkbox" name="checkbox-toggle-16" data-id="possuiAgua" value={possuiAgua}
+                onclick={handleInput} aria-describedby="checkbox-toggle-17" disabled={possuiAgua} />
+            <span id="checkbox-toggle-17" class="slds-checkbox_faux_container" aria-live="assertive">
+                <span class="slds-checkbox_faux"></span>
+                <span class="slds-checkbox_on">SIM</span>
+                <span class="slds-checkbox_off">NÃO</span>
+            </span>
+        </label>
+    </div>
 
-        </template>
-        <template if:false={mundoList}> 
-            false 
+    <div class="button input">
+        <lightning-button variant="brand" label="Cadastrar" title="Cadastrar?
+        " onclick={handleClick}  class="slds-m-left_x-small">
+        </lightning-button>
+    </div>
 
-        </template>
-        <template for:each={mundoList} for:item="mundo"> 
-            <p key={mundo.id}>nome: {mundo.nome}</p>
-                
-        </template>
+         
 
-    </lightning-card>
+    
+
+   
 
     
 </template>
